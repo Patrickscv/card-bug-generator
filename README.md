@@ -14,7 +14,7 @@ Um aplicativo desktop focado em padronizar e agilizar a criação de Bug Reports
 
 1. **Faça o clone do repositório e acesse a pasta:**
    ```bash
-   git clone https://github.com/Patrickscv/card-bug-generator
+   git clone https://github.com/Patrickscv/card-bug-generator.git
    cd card-bug-generator
    ```
 
@@ -27,4 +27,10 @@ Um aplicativo desktop focado em padronizar e agilizar a criação de Bug Reports
    * Crie um arquivo chamado `.env` na raiz do projeto (use o `.env.example` como base).
    * Insira a sua chave do Google AI Studio dentro dele, neste formato:
      ```env
-     GEMINI_API_KEY=
+     GEMINI_API_KEY=sua_chave_aqui
+     ```
+
+4. **Inicie o aplicativo:**
+   ```bash
+   python src/card_generator.py
+   ```
