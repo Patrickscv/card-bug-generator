@@ -1,4 +1,4 @@
-# QA Bug Report Generator
+# Card Bug Generator
 
 Um aplicativo desktop focado em padronizar e agilizar a criação de Bug Reports. Utiliza a IA do Google Gemini para transformar anotações rápidas em documentação técnica estruturada e pronta para o Jira/Azure DevOps.
 
