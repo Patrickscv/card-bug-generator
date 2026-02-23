@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 import customtkinter as ctk
-import google.generativeai as genai
+from google import genai
 import pyperclip
 from tkinter import messagebox, filedialog
 from fpdf import FPDF
@@ -11,11 +11,9 @@ API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not API_KEY:
     print("ERRO: GEMINI_API_KEY não encontrada no arquivo .env")
+    client = None
 else:
-    genai.configure(api_key=API_KEY)
-
-model = genai.GenerativeModel('gemini-2.5-flash')
-
+    client = genai.Client(api_key=API_KEY)
 
 TEMPLATE_INPUT = """
 Comportamento Atual (O que acontece):
@@ -134,14 +132,26 @@ class CardGeneratorApp(ctk.CTk):
         self.btn_pdf.grid(row=0, column=1, padx=(10, 0), sticky="w")
 
     def process_ai(self):
+        if not client:
+            messagebox.showerror("Erro", "API Key não configurada ou inválida.")
+            return
+
         user_content = self.input_text.get("1.0", "end-1c").strip()
+        if len(user_content) < 20:
+            messagebox.showwarning("Aviso", "Conteúdo muito curto.")
+            return
 
         self.btn_generate.configure(state="disabled", text="GERANDO O CARD...")
         self.update()
 
         try:
             full_prompt = f"{PROMPT_SISTEMA}\n\nCONTEÚDO PARA REFINAR:\n{user_content}"
-            response = model.generate_content(full_prompt)
+            
+            response = client.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=full_prompt
+            )
+            
             self.output_text.delete("1.0", "end")
             self.output_text.insert("1.0", response.text)
         except Exception as e:
