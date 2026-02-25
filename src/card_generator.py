@@ -49,12 +49,18 @@ Passos para Replicar:
 Evidências: [Local reservado para anexos/prints]
 
 ---
-RESUMO DE IMPACTO (Para documentos):
-Regras para esta seção:
-1. Início: Fale brevemente o que é o card (ex: "Correção no botão...", "Remoção da regra...").
-2. Estrutura de Impacto: Use o formato: "Possível impacto em [Módulo/Tela], podendo ocasionar erros ao [ação específica]".
-3. Casos sem Erro: Se não houver impacto, finalize com: "Nenhum impacto aparente."
-4. Estética: Texto limpo, sem sombreamento ou blocos de código.
+RESUMO DE IMPACTO:
+Crie descrições de impacto para o card fornecido, seguindo rigorosamente estas diretrizes:
+1. Resumo Inicial: Inicie a frase com uma explicação técnica e extremamente breve sobre o que o card faz ou corrige (ex: "Correção na inversão da lógica...", "Inclusão do campo...").
+2. Regra de Impacto (Padrão Obrigatório): Se houver um erro ou mudança funcional, utilize exatamente este formato: Possível impacto em [Módulo ou Tela], podendo ocasionar erros ao [ação específica realizada pelo usuário ou sistema].
+3. Regra para "Sem Impacto": Se a descrição indicar que não há erros ou impactos, finalize a frase com: Nenhum impacto aparente.
+4. Letra Limpa (Sem Formatação de Código): Não utilize blocos de código, sombreamentos ou crases no texto. O texto deve ser exibido como texto puro e limpo.
+5. Especificidade de Dados: Ao tratar de números receptivos, especifique sempre como "números 0800 e 4004" em vez de termos genéricos como "tipos de número".
+6. Exclusividade por Card: Processe o card de forma individual e isolada.
+7. Tom de Voz: Técnico, direto e focado no comportamento do sistema (front-end/back-end).
+
+Exemplo de Saída Esperada para o Resumo de Impacto:
+Correção no comportamento do botão X. Possível impacto em Tela de Cadastro, podendo ocasionar erros ao salvar novas informações.
 """
 
 ctk.set_appearance_mode("dark")
