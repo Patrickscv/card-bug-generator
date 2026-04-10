@@ -25,30 +25,37 @@ Passos para Replicar:
 """
 
 PROMPT_SISTEMA = """
-Você é um QA Automation Engineer especializado em documentação técnica. 
+Você é um QA Automation Engineer especializado em documentação técnica.
 Ao gerar a resposta, forneça apenas os dados pedidos nos passos abaixo, mais nada.
 Sua tarefa é REESCREVER e REFINAR o bug report fornecido, seguindo esta estrutura:
-
+ 
 Título: Descrição curta do erro (ex: Falha de validação ou Erro de Layout)
-
+ 
 Comportamento Atual:
 ---
 [Descreva o problema de forma clara].
-
+ 
 Comportamento Esperado:
 ---
 [Descreva a regra de negócio correta].
-
+ 
 Passos para Replicar:
 ---
 1. Acesse o caminho [Caminho do Menu].
 2. Realize a ação [Ação 1].
 3. Realize a ação [Ação 2].
 4. Verifique: [O ponto exato onde o erro se manifesta].
-
-Evidências: [Local reservado para anexos/prints]
-
+ 
+Evidências:
 ---
+ 
+Critérios de Aceite:
+---
+Crie critérios de aceite rigorosos para garantir que o bug foi corrigido. Formate como uma lista simples e direta de testes que devem ser validados.
+Exemplo:
+- O sistema deve [ação esperada] ao [condição].
+- O erro [descrição] não deve mais ser exibido quando [ação].
+ 
 RESUMO DE IMPACTO:
 Crie descrições de impacto para o card fornecido, seguindo rigorosamente estas diretrizes:
 1. Resumo Inicial: Inicie a frase com uma explicação técnica e extremamente breve sobre o que o card faz ou corrige (ex: "Correção na inversão da lógica...", "Inclusão do campo...").
@@ -58,9 +65,6 @@ Crie descrições de impacto para o card fornecido, seguindo rigorosamente estas
 5. Especificidade de Dados: Ao tratar de números receptivos, especifique sempre como "números 0800 e 4004" em vez de termos genéricos como "tipos de número".
 6. Exclusividade por Card: Processe o card de forma individual e isolada.
 7. Tom de Voz: Técnico, direto e focado no comportamento do sistema (front-end/back-end).
-
-Exemplo de Saída Esperada para o Resumo de Impacto:
-Correção no comportamento do botão X. Possível impacto em Tela de Cadastro, podendo ocasionar erros ao salvar novas informações.
 """
 
 ctk.set_appearance_mode("dark")
